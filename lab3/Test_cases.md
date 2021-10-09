@@ -1,4 +1,4 @@
-# Google Doc link
+# Google Docs link
 https://docs.google.com/spreadsheets/d/1-WzpjQOcKdcSKLNv0lN8RhAWwDNcm9ET/edit?usp=sharing&ouid=111513954098599691092&rtpof=true&sd=true
 
 # Poorly formatted table
