@@ -15,6 +15,7 @@ public class WBTest {
     public static final String PHONE = "296742715";
     public static final String RESERVE_IS_FINE_MSG = "ВАШ ЗАКАЗ ПРИНЯТ!!!!\n" +
             "НАКАНУНЕ ПОЕЗДКИ С ВАМИ СВЯЖЕТСЯ ВОДИТЕЛЬ!!!!";
+
     private WebDriver driver;
 
     @BeforeMethod(alwaysRun = true)
@@ -32,14 +33,16 @@ public class WBTest {
     @Test
     public void placingAnOrder_withCorrectlyFilledOutFormAndAPhoneNumber() {
         AvtoslavaHomePage homePage = new AvtoslavaHomePage(driver);
-        homePage.openHomePage().clickOnTomorrow();
-        homePage.clickOnOformit();
-        homePage.enterName(NAME);
-        homePage.enterPhone(PHONE);
-        homePage.selectStation();
-        homePage.selectNumOfSeats();
-        homePage.clickCheckBox();
-        homePage.clickOnReserve();
+        homePage.openHomePage()
+                .clickOnTomorrow()
+                .clickOnSubmitDrive()
+                .enterName(NAME)
+                .enterPhone(PHONE)
+                .selectStation()
+                .selectNumOfSeats()
+                .clickCheckBox()
+                .clickOnReserve();
+
         Assert.assertEquals(
                 homePage.getTextFrom(reserveFineLocator),
                 RESERVE_IS_FINE_MSG

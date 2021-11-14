@@ -26,7 +26,7 @@ public class AvtoslavaHomePage {
                     "[@class='form-control timetable-form-price-selector ng-pristine ng-valid']" +
                     "/option[@value='1']");
 
-    private final By buttonOformitLocator = By.xpath("//button[@class='btn btn-primary'][text()=' Оформить ']");
+    private final By buttonSubmitDriveLocator = By.xpath("//button[@class='btn btn-primary'][text()=' Оформить ']");
 
     private final By inputReserveLocator = By.xpath("//input[@type='submit'][@class='btn btn-primary'][@value='Забронировать']");
 
@@ -68,16 +68,19 @@ public class AvtoslavaHomePage {
         return this;
     }
 
-    public WebElement clickOnOformit() {
-        return findElementByLocatorAndClickStaleElementReferenceException(buttonOformitLocator);
+    public AvtoslavaHomePage clickOnSubmitDrive() {
+        findElementByLocatorAndClickStaleElementReferenceException(buttonSubmitDriveLocator);
+        return this;
     }
 
-    public WebElement clickOnReserve() {
-        return findElementByLocatorAndClickStaleElementReferenceException(inputReserveLocator);
+    public AvtoslavaHomePage clickOnReserve() {
+        findElementByLocatorAndClickStaleElementReferenceException(inputReserveLocator);
+        return this;
     }
 
-    public WebElement clickOnTomorrow() {
-        return findElementByLocatorAndClickStaleElementReferenceException(buttonTomorrow);
+    public AvtoslavaHomePage clickOnTomorrow() {
+        findElementByLocatorAndClickStaleElementReferenceException(buttonTomorrow);
+        return this;
     }
 
     public WebElement findElementByLocatorAndClickStaleElementReferenceException(By locator) {
