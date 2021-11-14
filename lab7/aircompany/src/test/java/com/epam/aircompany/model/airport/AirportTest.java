@@ -48,7 +48,7 @@ public class AirportTest {
     }
 
     @Test
-    public void takePassengerPlaneWithMaxPassengersCapacity_shouldReturnPassengerPlaneWithMaxPassengersCapacity_always()
+    public void takePassengerPlaneWithMaxPassengersCapacity_shouldReturnPassengerPlaneWithMaxPassengersCapacity_ifItPresents()
     {
         Assert.assertEquals(airport.takePassengerPlaneWithMaxPassengersCapacity(),
                 PASSENGER_PLANE_WITH_MAX_PASSENGER_CAPACITY);
