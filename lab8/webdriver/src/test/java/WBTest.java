@@ -11,9 +11,9 @@ import page.AvtoslavaHomePage;
 import java.io.File;
 
 public class WBTest {
-    public static final String NAME = "Павел";
-    public static final String PHONE = "296742715";
-    public static final String RESERVE_IS_FINE_MSG = "ВАШ ЗАКАЗ ПРИНЯТ!!!!\n" +
+    private static final String NAME = "Павел";
+    private static final String PHONE = "296742715";
+    private static final String RESERVE_IS_FINE_MSG = "ВАШ ЗАКАЗ ПРИНЯТ!!!!\n" +
             "НАКАНУНЕ ПОЕЗДКИ С ВАМИ СВЯЖЕТСЯ ВОДИТЕЛЬ!!!!";
 
     private WebDriver driver;
@@ -26,9 +26,6 @@ public class WBTest {
         chromeOptions.addArguments("--no-sandbox");
         driver = new ChromeDriver(chromeOptions);
     }
-
-    private final By reserveFineLocator = By.xpath("//div[@class='timetable-reservation-form-body']/" +
-            "/h2");
 
     @Test
     public void placingAnOrder_withCorrectlyFilledOutFormAndAPhoneNumber() {
@@ -44,15 +41,13 @@ public class WBTest {
                 .clickOnReserve();
 
         Assert.assertEquals(
-                homePage.getTextFrom(reserveFineLocator),
+                homePage.getTextFromReserveResponse(),
                 RESERVE_IS_FINE_MSG
         );
     }
-
 
     @AfterMethod(alwaysRun = true)
     public void tearDownBrowser() {
         driver.quit();
     }
-
 }

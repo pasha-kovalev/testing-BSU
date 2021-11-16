@@ -2,7 +2,9 @@ package com.epam.aircompany.model.airport;
 
 import com.epam.aircompany.model.plane.*;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Airport {
@@ -40,7 +42,6 @@ public class Airport {
                 .collect(Collectors.toList());
     }
 
-
     public List<ExperimentalPlane> takeExperimentalPlanes() {
         return planes.stream()
                 .filter(plane -> plane instanceof ExperimentalPlane)
@@ -48,32 +49,10 @@ public class Airport {
                 .collect(Collectors.toList());
     }
 
-    public List<ExperimentalPlane> takeExperimentalPlanesByCertainType(ExperimentalType experimentalType) {
-        return takeExperimentalPlanes().stream()
-                .filter(plane -> plane.getType().equals(experimentalType))
-                .collect(Collectors.toList());
-    }
-
     public List<ExperimentalPlane> takeExperimentalPlanesByCertainClassificationLevel(ClassificationLevel classificationLevel) {
         return takeExperimentalPlanes().stream()
                 .filter(plane -> plane.getClassificationLevel().equals(classificationLevel))
                 .collect(Collectors.toList());
-    }
-
-    public List<ExperimentalPlane> takeExperimentalPlanesByCertainTypeAndClassificationLevel(
-            ExperimentalType experimentalType, ClassificationLevel classificationLevel) {
-        return takeExperimentalPlanes().stream()
-                .filter(plane -> plane.getClassificationLevel().equals(classificationLevel))
-                .filter(plane -> plane.getType().equals(experimentalType))
-                .collect(Collectors.toList());
-    }
-
-    public void sortPlanesByMaxFlightDistance() {
-        planes.sort(Comparator.comparingInt(Plane::getMaxFlightDistance));
-    }
-
-    public void sortPlanesByMaxSpeed() {
-        planes.sort(Comparator.comparingInt(Plane::getMaxSpeed));
     }
 
     public void sortPlanesByMaxLoadCapacity() {

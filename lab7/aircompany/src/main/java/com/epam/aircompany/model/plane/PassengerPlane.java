@@ -19,29 +19,9 @@ public class PassengerPlane extends Plane {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
 
         PassengerPlane that = (PassengerPlane) o;
 
         return passengersCapacity == that.passengersCapacity;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + passengersCapacity;
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("PassengerPlane{");
-        sb.append("passengersCapacity=").append(passengersCapacity);
-        sb.append(", model='").append(model).append('\'');
-        sb.append(", maxSpeed=").append(maxSpeed);
-        sb.append(", maxFlightDistance=").append(maxFlightDistance);
-        sb.append(", maxLoadCapacity=").append(maxLoadCapacity);
-        sb.append('}');
-        return sb.toString();
     }
 }

@@ -9,12 +9,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AvtoslavaHomePage {
     public static final int TIMEOUT_IN_SECONDS = 20;
-    private WebDriver driver;
     private static final String HOMEPAGE_URL = "https://avto-slava.by/";
+
+    private final WebDriver driver;
 
     private final By checkBoxLocator = By.xpath("//input[@type='checkbox']" +
             "[@class='ng-pristine ng-invalid ng-invalid-required']");
+
     private final By nameInputLocator = By.xpath("//input[@name='firstname']");
+
     private final By phoneInputLocator = By.xpath("//input[@name='phone']" +
             "[@class='form-control ng-pristine ng-invalid ng-invalid-required']");
     private final By stationSelectLocator = By.xpath("//select[@name='station']" +
@@ -28,9 +31,13 @@ public class AvtoslavaHomePage {
 
     private final By buttonSubmitDriveLocator = By.xpath("//button[@class='btn btn-primary'][text()=' Оформить ']");
 
-    private final By inputReserveLocator = By.xpath("//input[@type='submit'][@class='btn btn-primary'][@value='Забронировать']");
+    private final By inputReserveLocator = By.xpath("//input[@type='submit'][@class='btn btn-primary']" +
+            "[@value='Забронировать']");
 
     private final By buttonTomorrow = By.xpath("//button[@class='btn btn-sm btn-info'][text()='Послезавтра']");
+
+    private final By reserveFineLocator = By.xpath("//div[@class='timetable-reservation-form-body']/" +
+            "/h2");
 
     public AvtoslavaHomePage(WebDriver driver) {
         this.driver = driver;
@@ -101,6 +108,10 @@ public class AvtoslavaHomePage {
         } catch (StaleElementReferenceException e) {
             return findElementByLocator(locator).getText();
         }
+    }
+
+    public String getTextFromReserveResponse() {
+        return getTextFrom(reserveFineLocator);
     }
 
     public WebElement findElementByLocator(By locator) {
