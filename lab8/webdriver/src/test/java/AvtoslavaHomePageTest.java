@@ -10,7 +10,7 @@ import page.AvtoslavaHomePage;
 
 import java.io.File;
 
-public class WBTest {
+public class AvtoslavaHomePageTest {
     private static final String NAME = "Павел";
     private static final String PHONE = "296742715";
     private static final String RESERVE_IS_FINE_MSG = "ВАШ ЗАКАЗ ПРИНЯТ!!!!\n" +
