@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AvtoslavaHomePage {
-    public static final int TIMEOUT_IN_SECONDS = 20;
+    private static final int TIMEOUT_IN_SECONDS = 20;
     private static final String HOMEPAGE_URL = "https://avto-slava.by/";
 
     private final WebDriver driver;
