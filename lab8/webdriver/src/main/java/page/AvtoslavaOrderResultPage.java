@@ -16,7 +16,6 @@ public class AvtoslavaOrderResultPage extends AbstractPage{
     }
 
     public String getTextFromReserveResponse() {
-        LOG.info("getting text from reserve response...");
         return getTextFrom(reserveFineLocator);
     }
 

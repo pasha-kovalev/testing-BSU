@@ -33,39 +33,33 @@ public class AvtoslavaOrderPage extends AbstractPage{
 
     public AvtoslavaOrderResultPage clickOnReserve() {
         findElementByLocatorAndClickStaleElementReferenceException(inputReserveLocator);
-        LOG.info("auto reserved");
         return new AvtoslavaOrderResultPage(driver);
     }
 
     public AvtoslavaOrderPage clickCheckBox() {
         findElementByLocatorAndClickStaleElementReferenceException(checkBoxLocator);
-        LOG.info("order checkbox clicked");
         return this;
     }
 
     public AvtoslavaOrderPage enterName(String name) {
         findElementByLocatorAndClickStaleElementReferenceException(nameInputLocator)
                 .sendKeys(name);
-        LOG.info("name entered: ");
         return this;
     }
 
     public AvtoslavaOrderPage enterPhone(String phone) {
         findElementByLocatorAndClickStaleElementReferenceException(phoneInputLocator)
                 .sendKeys(phone);
-        LOG.info("phone entered:");
         return this;
     }
 
     public AvtoslavaOrderPage selectStation() {
         findElementByLocatorAndClickStaleElementReferenceException(stationSelectLocator);
-        LOG.info("station selected");
         return this;
     }
 
     public AvtoslavaOrderPage selectNumOfSeats() {
         findElementByLocatorAndClickStaleElementReferenceException(seatsSelectLocator);
-        LOG.info("seats selected");
         return this;
     }
 }

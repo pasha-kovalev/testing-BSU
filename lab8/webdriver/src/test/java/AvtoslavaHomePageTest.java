@@ -1,15 +1,17 @@
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.AvtoslavaHomePage;
+import service.TestDataReader;
 import test.CommonConditions;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AvtoslavaHomePageTest extends CommonConditions {
     @Test
     public void routeFilterTest() {
-        String route = "Минск -> Могилев"/*InfoReader.getRoute()*/;
+        String route = TestDataReader.getRoute();
         AvtoslavaHomePage homePage = new AvtoslavaHomePage(driver)
                 .openHomePage()
                 .selectRoute();
-        Assert.assertTrue(homePage.findElementsBy(route).isEmpty());
+
+        assertThat(homePage.findElementsInPanelBy(route)).isEmpty();
     }
 }

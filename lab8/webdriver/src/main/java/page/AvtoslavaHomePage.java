@@ -25,29 +25,25 @@ public class AvtoslavaHomePage extends AbstractPage {
 
     public AvtoslavaHomePage openHomePage() {
         driver.get(HOMEPAGE_URL);
-        LOG.info("home page opened");
         return this;
     }
 
     public AvtoslavaOrderPage clickOnSubmitDrive() {
         findElementByLocatorAndClickStaleElementReferenceException(buttonSubmitDriveLocator);
-        LOG.info("drive submitted");
         return new AvtoslavaOrderPage(driver);
     }
 
     public AvtoslavaHomePage clickOnTomorrow() {
         findElementByLocatorAndClickStaleElementReferenceException(buttonTomorrow);
-        LOG.info("tomorrow clicked");
         return this;
     }
 
     public AvtoslavaHomePage selectRoute() {
         findElementByLocatorAndClickStaleElementReferenceException(routeSelectLocator);
-        LOG.info("route selected");
         return this;
     }
 
-    public List<WebElement> findElementsBy(String text) {
-        return driver.findElements(By.xpath("//div[@class='ng-scope'][contains(text(),'" + text + "')]"));
+    public List<WebElement> findElementsInPanelBy(String text) {
+        return driver.findElements(By.xpath("//div[@class='panel panel-default']//*[contains(text(),'" + text + "')]"));
     }
 }

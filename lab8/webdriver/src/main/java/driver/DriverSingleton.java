@@ -13,24 +13,27 @@ public class DriverSingleton {
     private DriverSingleton(){}
 
     public static WebDriver getDriver(){
-        if (null == driver){
+        if (null == driver) {
             if ("firefox".equals(System.getProperty("browser"))) {
                 WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver(new FirefoxOptions().setHeadless(true));
+                driver = new FirefoxDriver(new FirefoxOptions().setHeadless(false));
                 driver.manage().window().maximize();
                 return driver;
             }
 
-            WebDriverManager.chromedriver().version("94").setup();
-            driver = new ChromeDriver(new ChromeOptions().setHeadless(false).setBinary("D:\\Shindows\\Programm Files\\Google\\Chrome\\Application\\chrome.exe"));
+            WebDriverManager.chromedriver().version("95").setup();
+            driver = new ChromeDriver(new ChromeOptions().addArguments("--headless", "--no-sandbox",
+                    "--disable-dev-shm-usage", "--window-size=1920,1080", "--disable-extensions",
+                    "--proxy-server='direct://'", "--proxy-bypass-list=*", "--start-maximized", "--disable-gpu",
+                    "--ignore-certificate-errors"));
+
             driver.manage().window().maximize();
         }
-
         return driver;
     }
 
     public static void closeDriver(){
-        /*driver.quit();
-        driver = null;*/
+        driver.quit();
+        driver = null;
     }
 }
