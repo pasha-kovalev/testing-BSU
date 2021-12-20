@@ -11,8 +11,9 @@ import java.util.List;
 public class AvtoslavaOrderResultPage extends AbstractPage {
     private static final Logger LOG = LogManager.getLogger(AvtoslavaOrderResultPage.class);
 
-    private final By reserveFineLocator = By.xpath("//div[@class='timetable-reservation-form-body']/" +
+    private final By reserveMessageLocator = By.xpath("//div[@class='timetable-reservation-form-body']/" +
             "/h2");
+
     private final By smsTextLocator = By.xpath("//*[contains(text(),'SMS код проверки ')]");
 
     protected AvtoslavaOrderResultPage(WebDriver driver) {
@@ -21,7 +22,7 @@ public class AvtoslavaOrderResultPage extends AbstractPage {
 
     public String getTextFromReserveResponse() {
         LOG.info("getting text from reserve response...");
-        return getTextFrom(reserveFineLocator);
+        return getTextFrom(reserveMessageLocator);
     }
 
     public List<WebElement> findSmsText() {

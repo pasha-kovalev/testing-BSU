@@ -3,8 +3,10 @@ package page;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
@@ -26,6 +28,8 @@ public class AvtoslavaHomePage extends AbstractPage {
             "[text()=' Мои брони']");
 
     private final By contactsLi = By.xpath("//li/a[@title='Контакты']");
+
+    private final By homeLink = By.xpath("//*/a[@title='АвтоСлава®']");
 
     public AvtoslavaHomePage(WebDriver driver) {
         super(driver);
@@ -53,6 +57,15 @@ public class AvtoslavaHomePage extends AbstractPage {
         findElementByLocatorAndClick(buttonSubmitDriveLocator);
         LOG.info("drive submitted");
         return new AvtoslavaOrderPage(driver);
+    }
+
+    public AvtoslavaHomePage openNewWindowHomePage() {
+        new Actions(driver).keyDown(Keys.CONTROL)
+                .click(findElementByLocator(homeLink))
+                .keyUp(Keys.CONTROL)
+                .build()
+                .perform();
+        return new AvtoslavaHomePage(driver);
     }
 
     public AvtoslavaHomePage clickOnCalendar() {

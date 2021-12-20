@@ -27,6 +27,10 @@ public class AvtoslavaOrderPage extends AbstractPage {
                     "[@class='form-control timetable-form-price-selector ng-pristine ng-valid']" +
                     "/option[@value='1']");
 
+    private final By lastPlaceSelectLocator =
+            By.xpath("//select[@name='seats[price.price_id]']" +
+                    "/option[last()]");
+
     protected AvtoslavaOrderPage(WebDriver driver) {
         super(driver);
     }
@@ -66,6 +70,12 @@ public class AvtoslavaOrderPage extends AbstractPage {
     public AvtoslavaOrderPage selectNumOfSeats() {
         findElementByLocatorAndClick(seatsSelectLocator);
         LOG.info("seats selected");
+        return this;
+    }
+
+    public AvtoslavaOrderPage selectLastPlace() {
+        findElementByLocatorAndClick(lastPlaceSelectLocator);
+        LOG.info("last place selected");
         return this;
     }
 
