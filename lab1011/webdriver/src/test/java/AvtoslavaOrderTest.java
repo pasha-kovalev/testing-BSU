@@ -35,7 +35,7 @@ public class AvtoslavaOrderTest extends CommonConditions {
 
     @Test
     public void placingAnOrder_byTwoUsersFail() {
-        User user = UserCreator.withCredentialsFromProperty();
+        User user = UserCreator.withSecondPhoneWithCredentialsFromProperty();
         String orderErrorMsg = TestDataReader.getOrderErrorMsg();
         AvtoslavaHomePage homePage1 = new AvtoslavaHomePage(driver);
         homePage1.openHomePage();
