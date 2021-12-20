@@ -1,4 +1,5 @@
 import model.User;
+import org.awaitility.Duration;
 import org.testng.annotations.Test;
 import page.AvtoslavaHomePage;
 import page.AvtoslavaOrderPage;
@@ -9,8 +10,10 @@ import test.CommonConditions;
 
 import java.util.Iterator;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.awaitility.Awaitility.await;
 
 
 public class AvtoslavaOrderTest extends CommonConditions {
@@ -61,11 +64,7 @@ public class AvtoslavaOrderTest extends CommonConditions {
                 .selectLastPlace()
                 .clickCheckBox()
                 .clickOnReserve();
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            //ignore
-        }
+        await().timeout(2, TimeUnit.SECONDS);
         driver.switchTo().window(parentWindow);
         AvtoslavaOrderResultPage resultPage = orderPage1.clickOnReserve();
         assertThat(resultPage.getTextFromReserveResponse()).contains(orderErrorMsg);
