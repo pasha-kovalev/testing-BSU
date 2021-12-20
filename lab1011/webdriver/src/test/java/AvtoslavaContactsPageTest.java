@@ -3,7 +3,8 @@ import page.AvtoslavaContactsPage;
 import page.AvtoslavaHomePage;
 import service.TestDataReader;
 import test.CommonConditions;
-import static org.assertj.core.api.Assertions.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AvtoslavaContactsPageTest extends CommonConditions {
     @Test

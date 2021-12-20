@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="homepage" verbose="1">
-    <test name="RouteFilterTest">
+<suite name="Smoke" verbose="1">
+    <test name="AvtoslavaHomePage">
         <classes>
             <class name="AvtoslavaHomePageTest"/>
         </classes>

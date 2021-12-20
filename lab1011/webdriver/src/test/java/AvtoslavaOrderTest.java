@@ -1,6 +1,4 @@
 import model.User;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import page.AvtoslavaHomePage;
 import page.AvtoslavaOrderPage;

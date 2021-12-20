@@ -4,7 +4,8 @@ import page.AvtoslavaBookingPage;
 import page.AvtoslavaHomePage;
 import service.UserCreator;
 import test.CommonConditions;
-import static org.assertj.core.api.Assertions.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AvtoslavaBookingPageTest extends CommonConditions {
     @Test
