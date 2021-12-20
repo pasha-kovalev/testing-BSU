@@ -61,6 +61,11 @@ public class AvtoslavaOrderTest extends CommonConditions {
                 .selectLastPlace()
                 .clickCheckBox()
                 .clickOnReserve();
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            //ignore
+        }
         driver.switchTo().window(parentWindow);
         AvtoslavaOrderResultPage resultPage = orderPage1.clickOnReserve();
         assertThat(resultPage.getTextFromReserveResponse()).contains(orderErrorMsg);
